@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace UKParliament.CodeTest.Data
@@ -11,5 +12,10 @@ namespace UKParliament.CodeTest.Data
         }
 
         public DbSet<Person> People { get; set; }
+
+        public IQueryable<Person> GetAll()
+        {
+            return People.AsQueryable();
+        }
     }
 }
